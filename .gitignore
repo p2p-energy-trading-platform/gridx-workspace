@@ -1,0 +1,10 @@
+# Ignore all cloned microservice repositories
+/p2p-core/
+/iot-simulator/
+
+# Ignore local environment overrides
+.env
+.vscode
+.idea/
+.env.local
+.DS_Store
