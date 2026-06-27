@@ -1,4 +1,4 @@
 name: gridx-infrastructure
 
 include:
-  - path: ./p2p-core/docker-compose.yml
+  - path: ./gridx-infra/docker-compose.yml
