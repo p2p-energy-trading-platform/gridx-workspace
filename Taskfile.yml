@@ -1,11 +1,10 @@
 version: '3'
 
 vars:
-  BASE_URL: 'git@github.com:your-organization'
-  
-  REPOS: >-
-    p2p-core
-    iot-simulator
+  BASE_URL: 'git@github.com:p2p-energy-trading-platform'
+  REPOS: 
+    - gridx-infra
+    - iot-simulator
 
 tasks:
   default:
@@ -16,17 +15,21 @@ tasks:
   setup:
     desc: "Clones any missing repositories and pulls the latest changes for existing ones."
     cmds:
+      - for: { var: REPOS }
+        task: clone-or-pull
+        vars: { REPO: '{{.ITEM}}' }
+
+  clone-or-pull:
+    internal: true
+    cmds:
       - |
-        for repo in {{.REPOS}}; do
-          if [ ! -d "$repo" ]; then
-            echo "[MISSING] $repo - Cloning..."
-            git clone {{.BASE_URL}}/$repo.git
-          else
-            echo "[FOUND] $repo - Pulling latest updates..."
-            cd $repo && git pull && cd ..
-          fi
-        done
-    silent: false
+        if [ -d "{{.REPO}}" ]; then
+          echo "🔄 [FOUND] {{.REPO}} - Pulling latest updates..."
+          git -C {{.REPO}} pull
+        else
+          echo "📦 [MISSING] {{.REPO}} - Cloning repository..."
+          git clone {{.BASE_URL}}/{{.REPO}}.git
+        fi
 
   up:
     desc: "Spin up the core system infrastructure"
