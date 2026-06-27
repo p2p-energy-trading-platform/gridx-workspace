@@ -1,6 +1,6 @@
 # Ignore all cloned microservice repositories
 /gridx-infra/
-/iot-simulator/
+/iot-simulation/
 
 # Ignore local environment overrides
 .env

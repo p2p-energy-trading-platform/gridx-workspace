@@ -4,7 +4,7 @@ vars:
   BASE_URL: 'git@github.com:p2p-energy-trading-platform'
   REPOS: 
     - gridx-infra
-    - iot-simulator
+    - iot-simulation
 
 tasks:
   default:
