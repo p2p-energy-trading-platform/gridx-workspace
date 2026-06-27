@@ -1,0 +1,47 @@
+version: '3'
+
+vars:
+  BASE_URL: 'git@github.com:p2p-energy-trading-platform'
+  REPOS: 
+    - gridx-infra
+    - iot-simulation
+
+tasks:
+  default:
+    cmds:
+      - task --list
+    silent: true
+
+  setup:
+    desc: "Clones any missing repositories and pulls the latest changes for existing ones."
+    cmds:
+      - for: { var: REPOS }
+        task: clone-or-pull
+        vars: { REPO: '{{.ITEM}}' }
+
+  clone-or-pull:
+    internal: true
+    cmds:
+      - |
+        if [ -d "{{.REPO}}" ]; then
+          echo "🔄 [FOUND] {{.REPO}} - Pulling latest updates..."
+          git -C {{.REPO}} pull
+        else
+          echo "📦 [MISSING] {{.REPO}} - Cloning repository..."
+          git clone {{.BASE_URL}}/{{.REPO}}.git
+        fi
+
+  up:
+    desc: "Spin up the core system infrastructure"
+    cmds:
+      - docker compose -f docker-compose.root.yml up -d
+
+  down:
+    desc: "Stop all running core infrastructure containers"
+    cmds:
+      - docker compose -f docker-compose.root.yml down
+
+  logs:
+    desc: "Tail logs for the core infrastructure containers"
+    cmds:
+      - docker compose -f docker-compose.root.yml logs -f

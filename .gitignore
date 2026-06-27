@@ -1,0 +1,10 @@
+# Ignore all cloned microservice repositories
+/gridx-infra/
+/iot-simulation/
+
+# Ignore local environment overrides
+.env
+.vscode
+.idea/
+.env.local
+.DS_Store
