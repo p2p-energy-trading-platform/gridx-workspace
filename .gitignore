@@ -1,5 +1,5 @@
 # Ignore all cloned microservice repositories
-/p2p-core/
+/gridx-infra/
 /iot-simulator/
 
 # Ignore local environment overrides
