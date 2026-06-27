@@ -1,0 +1,44 @@
+version: '3'
+
+vars:
+  BASE_URL: 'git@github.com:your-organization'
+  
+  REPOS: >-
+    p2p-core
+    iot-simulator
+
+tasks:
+  default:
+    cmds:
+      - task --list
+    silent: true
+
+  setup:
+    desc: "Clones any missing repositories and pulls the latest changes for existing ones."
+    cmds:
+      - |
+        for repo in {{.REPOS}}; do
+          if [ ! -d "$repo" ]; then
+            echo "[MISSING] $repo - Cloning..."
+            git clone {{.BASE_URL}}/$repo.git
+          else
+            echo "[FOUND] $repo - Pulling latest updates..."
+            cd $repo && git pull && cd ..
+          fi
+        done
+    silent: false
+
+  up:
+    desc: "Spin up the core system infrastructure"
+    cmds:
+      - docker compose -f docker-compose.root.yml up -d
+
+  down:
+    desc: "Stop all running core infrastructure containers"
+    cmds:
+      - docker compose -f docker-compose.root.yml down
+
+  logs:
+    desc: "Tail logs for the core infrastructure containers"
+    cmds:
+      - docker compose -f docker-compose.root.yml logs -f
