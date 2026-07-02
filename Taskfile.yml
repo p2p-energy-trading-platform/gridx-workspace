@@ -5,6 +5,7 @@ vars:
   REPOS: 
     - gridx-infra
     - iot-simulation
+    - frontend-web
 
 tasks:
   default:
