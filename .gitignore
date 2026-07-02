@@ -2,6 +2,7 @@
 /gridx-infra/
 /iot-simulation/
 /frontend-web/
+/matching-enigine/
 
 # Ignore local environment overrides
 .env
