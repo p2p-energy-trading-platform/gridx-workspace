@@ -6,6 +6,7 @@ vars:
     - gridx-infra
     - iot-simulation
     - frontend-web
+    - matching-engine
 
 tasks:
   default:
