@@ -3,6 +3,7 @@
 /iot-simulation/
 /frontend-web/
 /matching-enigine/
+/frontend-mobile/
 
 # Ignore local environment overrides
 .env

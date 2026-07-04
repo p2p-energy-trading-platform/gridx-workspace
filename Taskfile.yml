@@ -7,6 +7,7 @@ vars:
     - iot-simulation
     - frontend-web
     - matching-engine
+    - frontend-mobile
 
 tasks:
   default:
