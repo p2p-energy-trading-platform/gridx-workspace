@@ -8,6 +8,10 @@ vars:
     - frontend-web
     - matching-engine
     - frontend-mobile
+    - protobuf
+    - go-sdk
+    - typescript-sdk
+    - cpp-sdk
 
 tasks:
   default:
