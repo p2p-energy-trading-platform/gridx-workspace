@@ -4,6 +4,10 @@
 /frontend-web/
 /matching-enigine/
 /frontend-mobile/
+/protobuf/
+/go-sdk/
+/typescript-sdk/
+/cpp-sdk/
 
 # Ignore local environment overrides
 .env
