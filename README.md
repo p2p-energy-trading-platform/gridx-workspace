@@ -214,3 +214,12 @@ Run the following command to  check for additional commands
     ```bash
     task --list
     ```
+
+## Important Quirks
+
+The pull and clone command: `go-task setup` or `task setup` will fail unexpectedly in any of the following cases:
+
+1. The gridx-workspace is currently switched to a local branch that does not have a remote origin
+1. Any of the repos that are managed by `go-task` are currently switched to a local branch that does not have a remote origin
+1. Merge conflict scenarios
+1. No internet connection
