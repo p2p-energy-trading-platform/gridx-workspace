@@ -12,6 +12,8 @@ vars:
     - go-sdk
     - typescript-sdk
     - cpp-sdk
+    - api-gateway
+    - iot-ingestion-dispatch
 
 tasks:
   default:

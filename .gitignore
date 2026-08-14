@@ -8,6 +8,8 @@
 /go-sdk/
 /typescript-sdk/
 /cpp-sdk/
+/api-gateway/
+/iot-ingestion-dispatch/
 
 # Ignore local environment overrides
 .env
