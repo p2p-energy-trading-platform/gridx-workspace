@@ -1,0 +1,17 @@
+# GridX repository implementation maturity
+#
+# Supported:
+# not-started
+# skeleton
+# early
+# active
+# near-complete
+# complete
+
+api-gateway=skeleton
+frontend-mobile=skeleton
+frontend-web=early
+gridx-infra=active
+iot-ingestion-dispatch=not-started
+iot-simulation=complete
+matching-engine=near-complete
