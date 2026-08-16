@@ -54,3 +54,8 @@ tasks:
     desc: "Tail logs for the core infrastructure containers"
     cmds:
       - docker compose -f docker-compose.root.yml logs -f
+
+  analyze:
+    desc: "Run static complexity analysis for all GridX repositories"
+    cmds:
+      - bash ./scripts/complexity-analysis.sh

@@ -215,6 +215,42 @@ Run the following command to  check for additional commands
     task --list
     ```
 
+## 4. Complexity Analysis
+
+Requirements: You need to have lizard python library installed.
+
+Install via the following command
+
+```bash
+pipx install lizard
+```
+
+Developers can do complexity analysis of current repositories by running the following command.
+
+Remember to make the `scripts/complexity-analysis.sh` executable before running the following commands.
+
+```bash
+chmod +x scripts/complexity-analysis.sh
+```
+
+Commands to scan for complexity analysis.
+
+```bash
+go-task analyze
+```
+
+or
+
+```bash
+task analyze
+```
+
+However note that the analysis depends on `.analysis-maturity` for confidence levels and proper human readable metrics. if significant work has been done, then it is best to update the correct state in the `.analysis-maturity` file before running the above command. Remember that any pull requests with any edits on analysis-maturity will be rejected. Only the organization admins (Manimehalan and Keeththigan) are allowed to edit that file and they will update it based on the current main branch state of each repos!
+
+**NOTE**: This is just a metric to analyze if a codebase is drifting to unmaintable or really complex state. It does not mean good code quality or production grade code. It also never runs tests or checks for runtime errors!
+
+The final reports (human readable and detailed reports) will be displayed in `complexity-analysis` folder. It is gitignored because the analysis depends only on current local context of all the repos. Ex: You can locally work on the project and scan here without pushing to git. The report might generate totally different results based on what branch you are currently in on each repos.
+
 ## Important Quirks
 
 The pull and clone command: `go-task setup` or `task setup` will fail unexpectedly in any of the following cases:
