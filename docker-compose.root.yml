@@ -3,3 +3,4 @@ name: gridx-infrastructure
 include:
   - path: ./gridx-infra/docker-compose.yml
   - path: ./matching-engine/docker-compose.yml
+  - path: ./api-gateway/docker-compose.yml
