@@ -41,14 +41,26 @@ tasks:
         fi
 
   up:
-    desc: "Spin up the core system infrastructure"
+    desc: "Spin up the the entire system"
     cmds:
       - docker compose -f docker-compose.root.yml up -d
 
   down:
-    desc: "Stop all running core infrastructure containers"
+    desc: "Stop all running system containers"
     cmds:
       - docker compose -f docker-compose.root.yml down
+
+  infra-up:
+    desc: "Spin up only gridx-infra"
+    dir: gridx-infra
+    cmds:
+      - docker compose up -d
+
+  infra-down:
+    desc: "Stop all running gridx-infra"
+    dir: gridx-infra
+    cmds:
+      - docker compose down
 
   logs:
     desc: "Tail logs for the core infrastructure containers"
