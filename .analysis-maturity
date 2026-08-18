@@ -15,3 +15,4 @@ gridx-infra=active
 iot-ingestion-dispatch=not-started
 iot-simulation=complete
 matching-engine=near-complete
+iot-ingestion-dispatch=skeleton

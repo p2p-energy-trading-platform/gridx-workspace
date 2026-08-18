@@ -39,21 +39,35 @@ tasks:
           echo "📦 [MISSING] {{.REPO}} - Cloning repository..."
           git clone {{.BASE_URL}}/{{.REPO}}.git
         fi
-
+  build:
+    desc: "Rebuild and restart specific or all containers"
+    cmds:
+      - docker compose -f docker-compose.root.yml up -d --build {{.CLI_ARGS}}
+      
   up:
-    desc: "Spin up the core system infrastructure"
+    desc: "Spin up the the entire system"
     cmds:
       - docker compose -f docker-compose.root.yml up -d
 
   down:
-    desc: "Stop all running core infrastructure containers"
+    desc: "Stop all running system containers"
     cmds:
-      - docker compose -f docker-compose.root.yml down
+      - docker compose -f docker-compose.root.yml down {{.CLI_ARGS}}
+
+  infra-up:
+    desc: "Spin up only gridx-infra"
+    cmds:
+      - docker compose -f gridx-infra/docker-compose.yml -p gridx-infrastructure up -d
+
+  infra-down:
+    desc: "Stop all running gridx-infra"
+    cmds:
+      - docker compose -f gridx-infra/docker-compose.yml -p gridx-infrastructure down {{.CLI_ARGS}}
 
   logs:
     desc: "Tail logs for the core infrastructure containers"
     cmds:
-      - docker compose -f docker-compose.root.yml logs -f
+      - docker compose -f docker-compose.root.yml logs -f {{.CLI_ARGS}}
 
   analyze:
     desc: "Run static complexity analysis for all GridX repositories"
