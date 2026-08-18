@@ -56,15 +56,13 @@ tasks:
 
   infra-up:
     desc: "Spin up only gridx-infra"
-    dir: gridx-infra
     cmds:
-      - docker compose up -d
+      - docker compose -f gridx-infra/docker-compose.yml -p gridx-infrastructure up -d
 
   infra-down:
     desc: "Stop all running gridx-infra"
-    dir: gridx-infra
     cmds:
-      - docker compose down
+      - docker compose -f gridx-infra/docker-compose.yml -p gridx-infrastructure down {{.CLI_ARGS}}
 
   logs:
     desc: "Tail logs for the core infrastructure containers"
