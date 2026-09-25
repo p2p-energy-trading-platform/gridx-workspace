@@ -10,6 +10,7 @@
 /cpp-sdk/
 /api-gateway/
 /iot-ingestion-dispatch/
+/auth-service/
 
 # Ignore local environment overrides
 .env

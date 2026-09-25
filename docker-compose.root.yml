@@ -5,3 +5,4 @@ include:
   - path: ./matching-engine/docker-compose.yml
   - path: ./api-gateway/docker-compose.yml
   - path: ./iot-ingestion-dispatch/docker-compose.yml
+  - path: ./auth-service/docker-compose.yml
