@@ -15,6 +15,7 @@ vars:
     - api-gateway
     - iot-ingestion-dispatch
     - auth-service
+    - dewa-mock-app
 
 tasks:
   default:

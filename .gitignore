@@ -11,6 +11,7 @@
 /api-gateway/
 /iot-ingestion-dispatch/
 /auth-service/
+/dewa-mock-app/
 
 # Ignore local environment overrides
 .env
