@@ -75,3 +75,8 @@ tasks:
     desc: "Run static complexity analysis for all GridX repositories"
     cmds:
       - bash ./scripts/complexity-analysis.sh
+
+  db:seed-grids:
+    desc: "Read grid.yaml and populate iot_data.grids table for iot-ingestion-dispatch"
+    cmds:
+      - python3 scripts/seed_grids.py

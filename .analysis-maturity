@@ -8,12 +8,12 @@
 # near-complete
 # complete
 
-api-gateway=early
-frontend-mobile=skeleton
+api-gateway=active
+frontend-mobile=early
 frontend-web=early
 gridx-infra=active
 iot-ingestion-dispatch=active
 iot-simulation=complete
 matching-engine=near-complete
-auth-service=active
-dewa-mock-app=early
+auth-service=near-complete
+dewa-mock-app=active
