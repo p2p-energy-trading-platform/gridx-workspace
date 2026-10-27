@@ -250,12 +250,3 @@ However note that the analysis depends on `.analysis-maturity` for confidence le
 **NOTE**: This is just a metric to analyze if a codebase is drifting to unmaintable or really complex state. It does not mean good code quality or production grade code. It also never runs tests or checks for runtime errors!
 
 The final reports (human readable and detailed reports) will be displayed in `complexity-analysis` folder. It is gitignored because the analysis depends only on current local context of all the repos. Ex: You can locally work on the project and scan here without pushing to git. The report might generate totally different results based on what branch you are currently in on each repos.
-
-## Important Quirks
-
-The pull and clone command: `go-task setup` or `task setup` will fail unexpectedly in any of the following cases:
-
-1. The gridx-workspace is currently switched to a local branch that does not have a remote origin
-1. Any of the repos that are managed by `go-task` are currently switched to a local branch that does not have a remote origin
-1. Merge conflict scenarios
-1. No internet connection
