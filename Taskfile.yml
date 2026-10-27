@@ -51,7 +51,28 @@ tasks:
     desc: "Rebuild and restart specific or all containers"
     cmds:
       - docker compose -f docker-compose.root.yml up -d --build {{.CLI_ARGS}}
-      
+  
+  external:web:
+    desc: "Build and run frontend-web on port 3000 (Production mode)"
+    dir: frontend-web
+    cmds:
+      - npm run build
+      - PORT=3000 npm run preview
+
+  external:dewa:
+    desc: "Build and run dewa-mock-app on port 3001 (Production mode)"
+    dir: dewa-mock-app
+    cmds:
+      - npm run build
+      - PORT=3001 npm run preview
+
+  external:simulator:
+    desc: "Build and run iot-simulation engine (Production mode)"
+    dir: iot-simulation
+    cmds:
+      - npm run build
+      - npm run start
+
   up:
     desc: "Spin up the the entire system"
     cmds:
