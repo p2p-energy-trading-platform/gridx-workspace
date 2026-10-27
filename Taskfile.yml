@@ -23,24 +23,30 @@ tasks:
       - task --list
     silent: true
 
-  setup:
-    desc: "Clones any missing repositories and pulls the latest changes for existing ones."
+  repo-status:
+    desc: "Checks git status of each repository"
+    env:
+      BASE_URL: "{{.BASE_URL}}"
+      REPOS: '{{.REPOS | join " "}}'
     cmds:
-      - for: { var: REPOS }
-        task: clone-or-pull
-        vars: { REPO: '{{.ITEM}}' }
+      - bash ./scripts/status-repos.sh
 
-  clone-or-pull:
-    internal: true
+  setup:
+    desc: "Clones missing repositories and safely pulls updates for clean, tracked repositories."
+    env:
+      BASE_URL: "{{.BASE_URL}}"
+      REPOS: '{{.REPOS | join " "}}'
     cmds:
-      - |
-        if [ -d "{{.REPO}}" ]; then
-          echo "🔄 [FOUND] {{.REPO}} - Pulling latest updates..."
-          git -C {{.REPO}} pull
-        else
-          echo "📦 [MISSING] {{.REPO}} - Cloning repository..."
-          git clone {{.BASE_URL}}/{{.REPO}}.git
-        fi
+      - bash ./scripts/sync-repos.sh
+
+  switch-main:
+    desc: "Safely switches each repo to 'main' if clean, up-to-date, and fully pushed"
+    env:
+      BASE_URL: "{{.BASE_URL}}"
+      REPOS: '{{.REPOS | join " "}}'
+    cmds:
+      - bash ./scripts/switch-to-main.sh
+
   build:
     desc: "Rebuild and restart specific or all containers"
     cmds:
