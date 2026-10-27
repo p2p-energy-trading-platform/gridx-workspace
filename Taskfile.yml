@@ -57,14 +57,14 @@ tasks:
     dir: frontend-web
     cmds:
       - npm run build
-      - PORT=3000 npm run preview
+      - npm run preview -- --port 3000
 
   external:dewa:
     desc: "Build and run dewa-mock-app on port 3001 (Production mode)"
     dir: dewa-mock-app
     cmds:
       - npm run build
-      - PORT=3001 npm run preview
+      - npm run preview -- --port 3001
 
   external:simulator:
     desc: "Build and run iot-simulation engine (Production mode)"
