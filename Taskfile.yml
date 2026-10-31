@@ -16,6 +16,7 @@ vars:
     - iot-ingestion-dispatch
     - auth-service
     - dewa-mock-app
+    - billing-wallet-service
 
 tasks:
   default:
