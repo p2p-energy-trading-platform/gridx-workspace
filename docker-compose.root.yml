@@ -6,3 +6,4 @@ include:
   - path: ./api-gateway/docker-compose.yml
   - path: ./iot-ingestion-dispatch/docker-compose.yml
   - path: ./auth-service/docker-compose.yml
+  - path: ./billing-wallet-service/docker-compose.yml
