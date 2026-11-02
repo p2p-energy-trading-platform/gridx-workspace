@@ -10,10 +10,11 @@
 
 api-gateway=active
 frontend-mobile=early
-frontend-web=early
+frontend-web=active
 gridx-infra=active
-iot-ingestion-dispatch=active
+iot-ingestion-dispatch=near-complete
 iot-simulation=complete
 matching-engine=near-complete
 auth-service=near-complete
 dewa-mock-app=active
+billing-wallet-service=skeleton

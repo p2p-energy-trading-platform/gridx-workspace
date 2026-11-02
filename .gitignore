@@ -12,6 +12,7 @@
 /iot-ingestion-dispatch/
 /auth-service/
 /dewa-mock-app/
+/billing-wallet-service/
 
 # Ignore local environment overrides
 .env
