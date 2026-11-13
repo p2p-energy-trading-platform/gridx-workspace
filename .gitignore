@@ -13,6 +13,7 @@
 /auth-service/
 /dewa-mock-app/
 /billing-wallet-service/
+/notification-service/
 
 # Ignore local environment overrides
 .env
