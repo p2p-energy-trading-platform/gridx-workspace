@@ -17,6 +17,7 @@ vars:
     - auth-service
     - dewa-mock-app
     - billing-wallet-service
+    - notification-service
 
 tasks:
   default:
