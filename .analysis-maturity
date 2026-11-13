@@ -18,3 +18,4 @@ matching-engine=near-complete
 auth-service=near-complete
 dewa-mock-app=active
 billing-wallet-service=skeleton
+notification-service=skeleton
