@@ -7,3 +7,4 @@ include:
   - path: ./iot-ingestion-dispatch/docker-compose.yml
   - path: ./auth-service/docker-compose.yml
   - path: ./billing-wallet-service/docker-compose.yml
+  - path: ./notification-service/docker-compose.yml
