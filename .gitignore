@@ -14,6 +14,7 @@
 /dewa-mock-app/
 /billing-wallet-service/
 /notification-service/
+/order-service/
 
 # Ignore local environment overrides
 .env

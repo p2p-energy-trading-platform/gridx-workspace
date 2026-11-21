@@ -18,6 +18,7 @@ vars:
     - dewa-mock-app
     - billing-wallet-service
     - notification-service
+    - order-service
 
 tasks:
   default:
