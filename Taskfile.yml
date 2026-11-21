@@ -95,6 +95,11 @@ tasks:
     cmds:
       - docker compose -f gridx-infra/docker-compose.yml -p gridx-infrastructure down {{.CLI_ARGS}}
 
+  stripe-cli:
+    desc: "Start local stripe cli server"
+    cmds:
+      - stripe listen --all-snapshot --forward-to http://localhost:8000/webhooks/stripe
+
   logs:
     desc: "Tail logs for the core infrastructure containers"
     cmds:
